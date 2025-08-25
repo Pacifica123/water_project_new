@@ -7,9 +7,10 @@ export async function apiFetch<T>(
 ): Promise<T> {
   const res = await fetch(`${BASE_URL}${path}`, {
     ...options,
+    mode: "cors",
     credentials: "include", // если нужны куки
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
       ...options.headers,
     },
   });

@@ -7,7 +7,7 @@ def setup_logger(name: str = "app"):
         fmt = logging.Formatter("%(asctime)s %(levelname)s %(name)s %(message)s")
         handler.setFormatter(fmt)
         logger.addHandler(handler)
-        logger.setLevel(logging.INFO)
+        logger.setLevel(logging.ERROR)
     return logger
 
 logger = setup_logger()

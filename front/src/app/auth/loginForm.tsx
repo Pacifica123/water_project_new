@@ -12,16 +12,17 @@ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setError("");
 
-  const formData = new URLSearchParams();
-  formData.append("username", username);
-  formData.append("password", password);
+const formData = JSON.stringify({
+  username,
+  password
+});
 
   try {
-    const res = await apiFetch("/auth/login", {
+    const res = await apiFetch("/api/v1/auth/login", {
       method: "POST",
       body: formData,
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json"
       }
     });
     console.log("Logged in:", res);
